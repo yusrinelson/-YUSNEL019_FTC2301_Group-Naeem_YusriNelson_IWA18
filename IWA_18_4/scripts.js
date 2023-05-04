@@ -32,6 +32,10 @@ const handleDragStart = (event) => {}
 
 const handleDragEnd = (event) => {}
 
+/**
+ * opens the "?" button and closes it when clicked on the "close" button
+ * 
+ */
 const handleHelpToggle = (event) => {
     const { target } = event;
     if (target == html.other.help) {
@@ -41,6 +45,11 @@ const handleHelpToggle = (event) => {
         html.help.overlay.close();
     }
 }
+
+/**
+ * when clicked on "Add Order" opens it.
+ * closes it when clicked on "cancel"
+ */
 const handleAddToggle = (event) => {
     const {target} = event
     if (target == html.other.add) {
@@ -50,6 +59,11 @@ const handleAddToggle = (event) => {
         html.add.overlay.close()
     }
 }
+
+/**
+ * when user submits order, collects the info typed in and pushes it to the ordered column
+ * 
+ */
 const handleAddSubmit = (event) => {
     event.preventDefault();
     const data = {
@@ -63,8 +77,12 @@ const handleAddSubmit = (event) => {
     const orderedDiv = orderedColumn.querySelector('[data-column="ordered"]');
     orderedDiv.appendChild(content)
     handleAddToggle();
-
 }
+
+/**
+ * 
+ * alows you to click in data extracted and re edit it to be updated in the eirther column 
+ */
 const handleEditToggle = (event) => {
     const {target} = event
     const opened = document.querySelector(".order")
